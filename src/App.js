@@ -4,9 +4,8 @@ import axios from 'axios'
 
 const key = 'a16a2f1c9dc2461a479db5c3e9bbb770';
 function App() {
-  const [eur, setEur] = useState([])
+
   const [tl, setTl] = useState([])
-  const [base, setBase] = useState([])
   const [amount, setAmount] = useState(1)
   const [amountInFrom, setAmountInFrom] = useState(true)
 
@@ -28,8 +27,6 @@ function App() {
         access_key: key,
       }
     }).then(({ data }) => {
-      setBase(data.base)
-      setEur([Object.keys(data.rates)[143]])
       setTl([Object.values(data.rates)[143]])
     })
 
@@ -54,7 +51,7 @@ function App() {
     <div className=" mx-auto bg-slate-900 h-screen w-full  flex flex-col items-center justify-center text-white">
       <div className='rounded-2xl bg-slate-700 w-96 p-3 shadow-2xl shadow-cyan-500/50'>
         <h1 className='text-md text-center font-bold text-cyan-300 tracking-wide '>Welcome to Money Exchange</h1>
-        <h1 className='text-xs text-center font-bold text-cyan-400 tracking-wide pb-2'>Between Euro and Turkish Lira</h1>
+        <h1 className='text-xs text-center font-bold text-cyan-400 tracking-wide pb-2'>Between Euro and Turkish</h1>
 
 
         <form className='flex-col flex p-1 rounded text-black bg-red-100' onSubmit={submit}>
